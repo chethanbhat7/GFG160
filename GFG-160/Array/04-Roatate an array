@@ -1,0 +1,14 @@
+#User function Template for python3
+
+class Solution:
+    #Function to rotate an array by d elements in counter-clockwise direction. 
+    def rotateArr(self, arr, d):
+        n=len(arr)
+        d=d%n #Normalize d (d>n)
+        arr1=[0]*n
+        for i in range(d):
+            arr1[n-d+i]=arr[i]
+        for i in range(d,n):
+            arr1[i-d]=arr[i]
+        for i in range(n):
+            arr[i]=arr1[i]
