@@ -1,3 +1,5 @@
+#SOLUTION 1
+
 #User function Template for python3
 
 class Solution:
@@ -12,3 +14,12 @@ class Solution:
             arr1[i-d]=arr[i]
         for i in range(n):
             arr[i]=arr1[i]
+
+#SOLUTION 2
+
+class Solution:
+    #Function to rotate an array by d elements in counter-clockwise direction. 
+    def rotateArr(self, arr, d):
+        n=len(arr)
+        d=d%n
+        arr[:]=arr[d:]+arr[:d]
