@@ -1,0 +1,11 @@
+class Solution:
+    def maximumProfit(self, prices):
+        n=len(prices)
+        low=float('inf')
+        res=0
+        for i in range(n):
+            if prices[i]<low:
+                low=prices[i]
+            elif prices[i]-low >res:
+                res=prices[i]-low
+        return res
