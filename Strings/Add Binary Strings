@@ -1,0 +1,5 @@
+#User function Template for python3
+class Solution:
+	def addBinary(self, s1, s2):
+	    return bin(int(s1,2)+int(s2,2))[2:].lstrip('0') or '0'
+	    
