@@ -1,0 +1,6 @@
+class Solution:
+    def areRotations(self, s1, s2):
+        s = s1 + s1
+        resindex=s.find(s2)
+        
+        return resindex!=-1
