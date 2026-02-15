@@ -1,0 +1,37 @@
+class Solution {
+    static boolean canAttend(int[][] arr) {
+        int m=arr.length;
+        int n=arr[0].length;
+        int max=arr[0][0];
+        for(int i=0;i<m;i++)
+        for(int j=0;j<n;j++)
+        {
+            if(arr[i][j]>max)
+            {
+                max=arr[i][j];
+            }
+        }
+        
+        int retarr[]=new int[max];
+        
+        for(int i=0;i<m;i++)
+        {
+            int start=arr[i][0];
+            int end=arr[i][1];
+            
+            for(int j=start;j<end;j++)
+            {
+                retarr[j]++;
+            }
+        }
+        
+        for(int i=0;i<retarr.length;i++)
+        {
+            if(retarr[i]>1)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
