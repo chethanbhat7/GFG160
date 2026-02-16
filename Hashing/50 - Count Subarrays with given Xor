@@ -1,0 +1,15 @@
+class Solution:
+    def subarrayXor(self, arr, k):
+        mp={}
+        Xor=0
+        res=0
+        for val in arr:
+            Xor^=val
+            
+            res+=mp.get(Xor^k,0)
+            
+            if Xor==k:
+                res+=1
+            
+            mp[Xor]=mp.get(Xor,0)+1
+        return res
