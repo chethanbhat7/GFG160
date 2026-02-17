@@ -1,0 +1,16 @@
+#User function Template for python3
+class Solution:
+    #Complete the below function
+    def countPairs(self, arr, target):
+        arr.sort()
+        n=len(arr)
+        start=0
+        end=n-1
+        count=0
+        while(start<end):
+            if(arr[start]+arr[end]<target):
+                count+=end-start
+                start+=1
+            else:
+                end-=1
+        return count
