@@ -1,0 +1,31 @@
+#User function Template for python3
+
+
+class Solution:
+
+    def anagrams(self, arr):
+        '''
+        words: list of word
+        n:      no of words
+        return : list of group of anagram {list will be sorted in driver code (not word in grp)}
+        '''
+
+        #code here
+        
+        res=[]
+        mp={}
+        
+        for i in range(len(arr)):
+            s=arr[i]
+            
+            s=''.join(sorted(s))
+            
+            if s not in mp:
+                mp[s]=len(res)
+                
+                res.append([])
+            
+            res[mp[s]].append(arr[i])
+        return res
+        
+        
