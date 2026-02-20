@@ -1,0 +1,15 @@
+class Solution:
+    def findEquilibrium(self, arr):
+        tot=sum(arr)
+        n=len(arr)
+        leftsum=0
+        
+        for i in range(n):
+            tot-=arr[i]
+            
+            if leftsum==tot:
+                return i
+            
+            leftsum+=arr[i]
+        return -1
+
