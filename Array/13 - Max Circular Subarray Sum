@@ -1,0 +1,18 @@
+class Solution:
+    def maxCircularSum(self, arr):
+        tsum=0
+        curmax=curmin=0
+        maxsum=arr[0]
+        minsum=arr[0]
+        
+        for i in arr:
+            curmax=max(i,curmax+i)
+            maxsum=max(curmax,maxsum)
+        
+            curmin=min(i,curmin+i)
+            minsum=min(curmin,minsum)
+            tsum+=i
+            
+        if maxsum<0:
+            return maxsum
+        return max(maxsum,tsum-minsum)
