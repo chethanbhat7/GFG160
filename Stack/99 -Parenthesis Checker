@@ -1,0 +1,44 @@
+class Solution {
+    private char stack[];
+    private int top = -1;
+    public boolean isBalanced(String s) {
+        top=-1;
+        stack=new char[s.length()];
+        
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='(' || s.charAt(i)=='{' || s.charAt(i)=='[')
+            {
+                push(s.charAt(i));
+            }
+            else{
+                if(isempty())return false;
+                char prev=pop();
+                if((prev=='(' && s.charAt(i)!=')') || (prev=='{' && s.charAt(i)!='}') || (prev=='[' && s.charAt(i)!=']')){
+                return false;
+            }
+            }
+        }
+        if(isempty())
+        {
+            return true;
+        }
+        else 
+        return false;
+        
+    }
+    
+    void push(char c)
+    {
+        stack[++top]=c;
+    }
+    
+    char pop()
+    {
+        return stack[top--];
+    }
+    
+     boolean isempty()
+    {
+     return top==-1;
+    }
+}
