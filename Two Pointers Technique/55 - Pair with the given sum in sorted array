@@ -1,0 +1,16 @@
+#User function Template for python3
+
+
+class Solution:
+    def countPairs (self, arr, target) : 
+        #Complete the function
+        freq={}
+        
+        count=0
+        
+        for num in arr:
+            
+            if target-num in freq:
+                count+=freq[target-num]
+            freq[num]=freq.get(num,0)+1
+        return count
