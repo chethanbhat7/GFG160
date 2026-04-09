@@ -1,0 +1,22 @@
+class Solution:
+    def maxWater(self, arr):
+        # code here
+        l=0
+        r=len(arr)-1
+        
+        lmax=arr[l]
+        rmax=arr[r]
+        
+        res=0
+        
+        while(l<=r):
+            if rmax<=lmax:
+                res+=max(0,rmax-arr[r])
+                
+                rmax=max(rmax,arr[r])
+                r-=1
+            else:
+                res+=max(0,lmax-arr[l])
+                lmax=max(lmax,arr[l])
+                l+=1
+        return res
