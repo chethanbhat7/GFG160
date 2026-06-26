@@ -1,0 +1,23 @@
+
+class Solution:
+    def maxLength(self, s):
+        # code here
+        n=len(s)
+        st=[]
+        
+        st.append(-1)
+        
+        maxLen=0
+        
+        for i in range(n):
+            if s[i]=='(':
+                st.append(i)
+            else:
+                st.pop()
+                
+                if not st:
+                    st.append(i)
+                    
+                else:
+                    maxLen=max(maxLen,i-st[-1])
+        return maxLen
