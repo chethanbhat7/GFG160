@@ -1,0 +1,36 @@
+class Solution:
+    
+    def searchWord(self,i,l,n,m,mat,word,r,c,dir):
+        if i==l:
+            return True
+        if r<0 or r>=n or c<0 or c>=m:
+            return False
+        
+        if mat[r][c]==word[i]:
+            temp=mat[r][c]
+            mat[r][c]='#'
+
+            res=False            
+            for d in dir:
+                x=r+d[0]
+                y=c+d[1]
+                
+                res=res or self.searchWord(i+1,l,n,m,mat,word,x,y,dir)
+            mat[r][c]=temp
+            return res
+        return False
+	def isWordExist(self, mat, word):
+		n=len(mat)
+		m=len(mat[0])
+		
+		l=len(word)
+		
+		dir=[[0,-1],[0,1],[1,0],[-1,0]]
+		
+		
+		for i in range(n):
+		    for j in range(m):
+		        if mat[i][j]==word[0]:
+		            if self.searchWord(0,l,n,m,mat,word,i,j,dir):
+		                return True
+        return False
