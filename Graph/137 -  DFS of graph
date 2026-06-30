@@ -1,0 +1,18 @@
+class Solution:
+    def dfsHelp(self,node,vis,res,adj):
+        vis[node]=True
+        res.append(node)
+        
+        for neighbour in adj[node]:
+            if not vis[neighbour]:
+                self.dfsHelp(neighbour,vis,res,adj)
+    
+    def dfs(self, adj):
+        # code here
+        n=len(adj)
+        vis=[False]*n
+        res=[]
+        
+        self.dfsHelp(0,vis,res,adj)
+        
+        return res
