@@ -1,0 +1,24 @@
+class Solution:
+    def bfs(self, adj):
+        # code here
+        n=len(adj)
+        
+        res=[]
+        
+        q=deque()
+        
+        vis=[False]*n
+        
+        q.append(0)
+        vis[0]=True
+        
+        while q:
+            i=q.popleft()
+            res.append(i)
+            
+            for x in adj[i]:
+                if vis[x]==False:
+                    vis[x]=True
+                    q.append(x)
+                    
+        return res
