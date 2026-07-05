@@ -1,0 +1,31 @@
+""" Structure of linked list Node
+class Node:
+    def __init__(self, data):
+		self.data = data
+		self.next = None
+"""
+class Solution:
+    def reverseKGroup(self, head, k):
+        # Code here
+        curr=head
+        newHead=None
+        tail=None
+        
+        while curr:
+            groupHead=curr
+            count=0
+            prev=None
+            
+            while curr and count<k:
+                next=curr.next
+                curr.next=prev
+                prev=curr
+                curr=next
+                count+=1
+            if newHead is None:
+                newHead=prev
+                
+            if tail is not None:
+                tail.next=prev
+            tail=groupHead
+        return newHead
